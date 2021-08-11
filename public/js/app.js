@@ -1,6 +1,4 @@
-//This code will be executed by Chrome console
-
-console.log('Client side javascript file is loaded') //This won't appear in the browser, but will do in the console of chrome (tools-->tools for developers)
+//console.log('Client side javascript file is loaded') //This won't appear in the browser, but will do in the console of chrome (tools-->tools for developers)
 
 const weatherForm = document.querySelector('form') // it comes back a JS representation of that element and we can use that to manipulate the element or to things when the user interacts with the element
 const search = document.querySelector('input')
