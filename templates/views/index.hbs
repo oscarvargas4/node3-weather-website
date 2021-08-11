@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Weather</title>
+    <link rel="icon" href="/img/weather.png">
+    <link rel="stylesheet" href="/css/styles.css"><!-- This will customize the html by css, before, index.hbs was index.html and was located in "public" file, so directory was "web-server/public/", this is important to know for src. -->    
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}} <!-- partial header from header.hbs -->
+        <!-- OLD: <h1>{{title}}</h1> Access to hbs object with property name: title -->
+        <p>Use this site to get your weather</p>
+
+        <form>
+            <input placeholder="Location">
+            <button>Search</button>
+        </form>
+
+        <p id="message-1"></p>
+        <p id="message-2"></p>
+    </div>
+    
+    {{>footer}}
+    <script src="/js/app.js"></script> <!-- This code is located here to avoid is parsed first, so the user can submit forms and thus, the code won't crash -->
+</body>
+
+</html>
