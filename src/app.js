@@ -51,14 +51,14 @@ app.get('/about', (req, res) => {
 app.get('',(req, res) => {
     res.render('index', {//'index' must match up with hbs document, in this case "index.hbs", It must be a view.
         title: 'Weather App',
-        name: 'Andrew Mead'
+        name: 'Oscar Vargas'
     }) 
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Me',
-        name: 'Andrew Mead'
+        name: 'Oscar Vargas'
     })
 })
 
@@ -66,7 +66,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         helpText: 'This is some helpul text',
         title: 'Help',
-        name: 'Andrew Mead'
+        name: 'Oscar Vargas'
     })
 })
 
@@ -126,7 +126,7 @@ app.get('/products', (req, res) => {
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Andrew Mead',
+        name: 'Oscar Vargas',
         errorMessage: 'Help article not found'
     })
 })
@@ -135,14 +135,14 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Andrew Mead',
+        name: 'Oscar Vargas',
         errorMessage:'Page not found'
     })
 })
 
 //Starting the server
 app.listen(port, () => {
-    console.log('Server is up on port' + port) //This message is never gonna display on user's browser, only who server up.
+    console.log('Server is up on port ' + port) //This message is never gonna display on user's browser, only who server up.
 }) // 1st argument: starts the server up with port: 3000 (listens the port 3000) (this was before, now is the variable "port"). 2nd argument: callback
 
 
