@@ -11,6 +11,7 @@ const forecast = require('./utils/forecast')
 //console.log(path.join(__dirname, '../public')) // change the directory from "src" file to "public" file
 
 const app = express()
+const port = process.env.PORT || 3000  // Heroku will use the value "process.env.PORT", if doesn't exists, will use "3000"
 
 //Define Paths for Expresss config
 const publicDirectoryPath = path.join(__dirname, '../public')    
@@ -140,8 +141,8 @@ app.get('*', (req, res) => {
 })
 
 //Starting the server
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.') //This message is never gonna display on user's browser, only who server up.
-}) // 1st argument: starts the server up with port: 3000 (listens the port 3000). 2nd argument: callback
+app.listen(port, () => {
+    console.log('Server is up on port' + port) //This message is never gonna display on user's browser, only who server up.
+}) // 1st argument: starts the server up with port: 3000 (listens the port 3000) (this was before, now is the variable "port"). 2nd argument: callback
 
 

@@ -16,7 +16,7 @@ weatherForm.addEventListener('submit', (e) => { // "e" stands for "event"
     messageTwo.textContent = ''
     
     //fetch API - Client side javascript - Allow us to fetch data from a URL and do something with it.
-    fetch('http://localhost:3000/weather?address=' + location).then((response) => { // ".then" is a promise. Here, it will get back a response, and this response will be an argument for an function
+    fetch('/weather?address=' + location).then((response) => { // ".then" is a promise. Here, it will get back a response, and this response will be an argument for an function. When I was working with localhost, the url was: 'http://localhost:3000/weather?address='. Now that we are working with heroku, it changes to ''/weather?address=''
     response.json().then((data) => {
         if (data.error) {
             messageOne.textContent = data.error
