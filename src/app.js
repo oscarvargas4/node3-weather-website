@@ -5,10 +5,6 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
-//Give the server access to index.html
-//console.log(__dirname) //This give the directory for the folder of the current document
-//console.log(__filename)
-//console.log(path.join(__dirname, '../public')) // change the directory from "src" file to "public" file
 
 const app = express()
 const port = process.env.PORT || 3000  // Heroku will use the value "process.env.PORT", if doesn't exists, will use "3000"
@@ -27,27 +23,6 @@ hbs.registerPartials(partialsPath)
 // Setup static directory to serve - http://expressjs.com/en/4x/api.html#app.use
 app.use(express.static(publicDirectoryPath)) //A way to customize your server - With this function, we are customizing the URL with extension: about.html, help.html, index.html. This was before we passed the .html documents to .hbs documents
 
-/* OLD
-app.get('', (req, res) => { // "req": object containing information about incoming request to the server.  "res": contains a bunch of methods allowing us to customize what we are sending back to requester. '' means the extension of URL, for exemple here we define only for app.com, but could be app.com/about, if we put '/about'
-    res.send('<h1>Weather</h1>') //send back to requester. This will show in the browser of requester: ''
-})
-
-// app.com
-// app.com/help
-// app.com/about
-
-app.get('/help', (req, res) => {
-    res.send([{
-        name:'Andrew'
-    }, {
-        name:'Sarah'
-    }])
-})
-
-app.get('/about', (req, res) => {
-    res.send('<h1>About</h1>')
-})
-*/
 app.get('',(req, res) => {
     res.render('index', {//'index' must match up with hbs document, in this case "index.hbs", It must be a view.
         title: 'Weather App',
@@ -111,18 +86,7 @@ app.get('/products', (req, res) => {
     })
 })
 
-//Defining not found extensions
-// app.get('*', (req, res) => {
-//     res.send('Help article not found') // Ex: http://localhost:3000/help/jijij
-// })
-
-//Defining Error 404 page, The 404 page will show when a user tries to visit a page that doesn’t exist.
-// app.get('*',(req,res) => { // '*' match anything that hasn't match so far
-//     res.send('My 404 page')
-// })
-
-//404 Summary
-
+// 404 Summary
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
@@ -142,7 +106,5 @@ app.get('*', (req, res) => {
 
 //Starting the server
 app.listen(port, () => {
-    console.log('Server is up on port ' + port) //This message is never gonna display on user's browser, only who server up.
-}) // 1st argument: starts the server up with port: 3000 (listens the port 3000) (this was before, now is the variable "port"). 2nd argument: callback
-
-
+    console.log('Server is up on port ' + port) 
+})
